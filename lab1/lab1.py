@@ -103,8 +103,8 @@ class Solution:
         #     y: Number of Orders
         #     title: Most popular items
         new_data.plot.bar(x = 'item_name',y= 'quantity', title='Most popular items')
-        plt.xlabel("Items")
-        plt.ylabel("Number of Orders")
+        plt.xlabel('Items')
+        plt.ylabel('Number of Orders')
         # 5. show the plot. Hint: plt.show(block=True).
         plt.show(block=True)
         print(data_frame)
@@ -128,8 +128,8 @@ class Solution:
         #       title: Numer of items per order price
         #       x: Order Price
         #       y: Num Items
-        plt.xlabel("Order Price")
-        plt.ylabel("Num Items")
+        plt.xlabel('Order Price')
+        plt.ylabel('Num Items')
         plt.show(block=True)
         pass
 
