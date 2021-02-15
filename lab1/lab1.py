@@ -93,10 +93,13 @@ class Solution:
         letter_counter = Counter(self.chipo.item_name)
         # TODO
         # 1. convert the dictionary to a DataFrame
-        data_frame= pd.DataFrame.from_dict(letter_counter,orient='index').reset_index()
+        data_frame= pd.DataFrame.from_dict(letter_counter,orient='index').reset_index() 
+        # Using from_dict to convert dictionary to dataframe
         # 2. sort the values from the top to the least value and slice the first 5 items
         data_frame = data_frame.rename(columns = {'index' : 'item_name', 0 :'quantity'})
+        # Assigning the index and Columns names to the original item-name and quantity 
         new_data = data_frame.sort_values(by = 'quantity', ascending = 'False').iloc[:5]
+        # Using iloc to display first 5 items in descending order
         # 3. create a 'bar' plot from the DataFrame
         # 4. set the title and labels:
         #     x: Items
@@ -114,9 +117,12 @@ class Solution:
         # TODO
         # 1. create a list of prices by removing dollar sign and trailing space.
         self.chipo['item_price'] = self.chipo['item_price'].str.replace('$', '')
+        #Using str.replace to remove the dollar sign
         self.chipo['item_price'] = self.chipo.item_price.apply(lambda x: float(x[:]))
+        # Using the lambda function to convert to float 
         # 2. groupby the orders and sum it.
         item_grp = self.chipo.groupby('order_id').agg({'item_price':'sum','quantity':'sum'})
+        # Grouping the orders and suming it
         #print(item_grp)
         # 3. create a scatter plot:
         #       x: orders' item price
